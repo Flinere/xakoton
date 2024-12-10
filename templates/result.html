@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты обработки</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0a32f;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #fff;
+            margin-top: 20px;
+        }
+        .result-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .result-box {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .result-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .result-box a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0a32f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .result-box a:hover {
+            background-color: #e6951e;
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #f0a32f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #e6951e;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="location.href='/'">&#8592; Вернуться на главную</button>
+    <h1>Обработанные изображения</h1>
+    <div class="result-container">
+        {% for filename in filenames %}
+            <div class="result-box">
+                <img src="/uploads/{{ filename }}" alt="Обработанное изображение">
+                <a href="/download/{{ filename }}">Скачать изображение</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

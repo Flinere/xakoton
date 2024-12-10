@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0a32f;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #fff;
+            margin-top: 20px;
+        }
+        /* Логотип в левом верхнем углу */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 70px;
+        }
+        .upload-box {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            width: 50%;
+        }
+        .upload-box h2 {
+            color: #f0a32f;
+        }
+        /* Flexbox контейнер для кнопок */
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Изменяем на столбец, чтобы имя файла отображалось между кнопками */
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .upload-box label,
+        .upload-box button {
+            padding: 10px 20px;
+            background-color: #f0a32f;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 150px;  /* одинаковая ширина для обеих кнопок */
+            text-align: center;  /* выравнивание текста по центру */
+            font-size: 16px;     /* одинаковый размер шрифта */
+        }
+        .upload-box label:hover,
+        .upload-box button:hover {
+            background-color: #e6951e;
+        }
+        /* Скрываем стандартный input file */
+        input[type="file"] {
+            display: none;
+        }
+        /* Стили для имени файла */
+        .file-name {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        /* Иконки внизу */
+        .social-icons {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .social-icons svg {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Логотип в верхнем левом углу -->
+    <h1>#LAPTOPS AI</h1>
+
+    <h2>ANOTHER DAY WITHOUT SLEEP 52</h2>
+
+    <div class="upload-box">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <h2>Загрузите фото для анализа</h2>
+            <p>Поддерживается .jpg .jpeg .png</p>
+            <div class="button-container">
+                <!-- Кастомная кнопка для загрузки файлов -->
+                <label for="file-upload" class="custom-file-upload">
+                    Выберите файлы
+                </label>
+                <input id="file-upload" type="file" name="file" accept=".jpg,.jpeg,.png" required multiple>
+                <p id="file-name" class="file-name">Файл не выбран</p> <!-- Параграф для отображения имени файла -->
+                <button type="submit">Загрузить</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Социальные иконки внизу -->
+    <div class="social-icons">
+        <a href="https://t.me/brokentop_bot" target="_blank" title="Telegram">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+                <circle cx="120" cy="120" r="120" fill="#37aee2"/>
+                <path d="M99.2 168.8c-5.7 0-4.7-2.1-6.6-7.4l-16.6-54.8L170 83.6" fill="#c8daea"/>
+                <path d="M99.2 168.8c4.5 0 6.5-2.1 9-4.6l24.4-23.4-30.3-18.2" fill="#a9c6d8"/>
+                <path d="M100.3 144.3l48.9 35.9c5.6 3.1 9.6 1.5 11-5.2l19.9-93.5c2-8.1-3.1-11.8-8.6-9.6L55.5 116.1c-8 3.1-8 7.5-1.5 9.5l34.8 10.9 80.7-51.1c3.8-2.5 7.3-1.2 4.4 1.6" fill="#ffffff"/>
+            </svg>
+        </a>
+
+        <a href="https://github.com/DesertChaos/SPB-Hackaton-13.10-Solution" target="_blank" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.599.11.82-.26.82-.577v-2.041c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.091-.746.083-.731.083-.731 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.494.997.108-.775.419-1.304.762-1.605-2.665-.305-5.467-1.332-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.526.117-3.176 0 0 1.008-.322 3.301 1.23.96-.267 1.983-.4 3.003-.404 1.02.004 2.043.137 3.004.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.65.241 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.61-2.806 5.623-5.479 5.92.431.372.814 1.102.814 2.222v3.293c0 .319.218.692.824.575C20.565 21.796 24 17.301 24 12 24 5.373 18.627 0 12 0z"/>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        // Обновляем имя файла при его выборе
+        document.getElementById('file-upload').addEventListener('change', function() {
+            var fileNames = Array.from(this.files).map(file => file.name).join(', ') || 'Файл не выбран';
+            document.getElementById('file-name').textContent = fileNames;
+        });
+    </script>
+</body>
+</html>
